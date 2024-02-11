@@ -1,23 +1,73 @@
-<template>
+<!-- <template>
   <ion-page>
     <ion-header>
       <ion-toolbar>
-        <ion-title>Tab 1</ion-title>
+        <ion-title>Tab 2</ion-title>
       </ion-toolbar>
     </ion-header>
     <ion-content :fullscreen="true">
       <ion-header collapse="condense">
         <ion-toolbar>
-          <ion-title size="large">Tab 1</ion-title>
+          <ion-title size="large">Tab 2</ion-title>
         </ion-toolbar>
       </ion-header>
 
-      <ExploreContainer name="Tab 1 page" />
+      <ExploreContainer name="Tab 2 page" />
+    </ion-content>
+  </ion-page>
+</template> -->
+
+<script setup lang="ts">
+import {
+  IonContent,
+  IonCol,
+  IonFab,
+  IonFabButton,
+  IonGrid,
+  IonPage,
+  IonHeader,
+  IonIcon,
+  IonImg,
+  IonRow,
+  IonTitle,
+  IonToolbar,
+} from "@ionic/vue";
+import { camera, trash, close } from "ionicons/icons";
+import { usePhotoGallery, UserPhoto } from "@/composables/usePhotoGallery";
+
+const { photos, takePhoto } = usePhotoGallery();
+</script>
+
+<template>
+  <ion-page>
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Ingredients</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content :fullscreen="true">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="6" :key="photo.filepath" v-for="photo in photos">
+            <ion-img :src="photo.webviewPath"></ion-img>
+            <div>
+              <p>Type: Fruit</p>
+              <p>Name: Banana</p>
+              <p>Weight: 310 g</p>
+              <p>Calories: 289</p>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+        <ion-fab-button @click="takePhoto()">
+          <ion-icon :icon="camera"></ion-icon>
+        </ion-fab-button>
+      </ion-fab>
     </ion-content>
   </ion-page>
 </template>
 
-<script setup lang="ts">
-import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/vue';
-import ExploreContainer from '@/components/ExploreContainer.vue';
-</script>
+<style scoped></style>

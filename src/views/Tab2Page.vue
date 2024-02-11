@@ -42,7 +42,7 @@ const { photos, takePhoto } = usePhotoGallery();
   <ion-page>
     <ion-header>
       <ion-toolbar>
-        <ion-title>Photo Gallery</ion-title>
+        <ion-title>Ingredients to meal</ion-title>
       </ion-toolbar>
     </ion-header>
 
