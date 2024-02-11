@@ -1,9 +1,10 @@
 <script setup>
-import TheWelcome from '../components/TheWelcome.vue'
+import { RouterLink, RouterView } from 'vue-router'
+import CameraOutput from '../components/home/CameraOutput.vue';
 </script>
 
 <template>
-  <main>
-    <TheWelcome />
-  </main>
+  <CameraOutput />
 </template>
+
+<style scoped lang="scss"></style>
