@@ -1,9 +1,9 @@
-<script setup>
-import { RouterLink, RouterView } from 'vue-router'
-</script>
-
 <template>
-  <RouterView />
+  <ion-app>
+    <ion-router-outlet />
+  </ion-app>
 </template>
 
-<style scoped lang="scss"></style>
+<script setup lang="ts">
+import { IonApp, IonRouterOutlet } from '@ionic/vue';
+</script>
